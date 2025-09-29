@@ -28,16 +28,22 @@ namespace ThreadingMidtermTP
 
         private void RunButton_Click(object sender, EventArgs e)
         {
-            ThreadStart threadStart = new ThreadStart(MyThreadClass.Thread1);
-            Thread ThreadA = new Thread(threadStart);
-            Thread ThreadB = new Thread(threadStart);
-            Thread ThreadC = new Thread(threadStart);
-            Thread ThreadD = new Thread(threadStart);
+            ThreadStart threadStart1 = new ThreadStart(MyThreadClass.Thread1);
+            ThreadStart threadStart2 = new ThreadStart(MyThreadClass.Thread2);
+            Thread ThreadA = new Thread(threadStart1);
+            Thread ThreadB = new Thread(threadStart2);
+            Thread ThreadC = new Thread(threadStart1);
+            Thread ThreadD = new Thread(threadStart2);
 
             ThreadA.Name = "Thread A";
             ThreadB.Name = "Thread B";
             ThreadC.Name = "Thread C";
             ThreadD.Name = "Thread D";
+
+            ThreadA.Priority = ThreadPriority.Highest;
+            ThreadB.Priority = ThreadPriority.Normal;
+            ThreadC.Priority = ThreadPriority.AboveNormal;
+            ThreadD.Priority = ThreadPriority.BelowNormal;
 
             ThreadA.Start();
             ThreadB.Start();
