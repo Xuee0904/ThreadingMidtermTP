@@ -45,10 +45,20 @@ namespace ThreadingMidtermTP
             ThreadC.Priority = ThreadPriority.AboveNormal;
             ThreadD.Priority = ThreadPriority.BelowNormal;
 
+            Console.WriteLine("-- Thread starts --");
+
             ThreadA.Start();
             ThreadB.Start();
             ThreadC.Start();
             ThreadD.Start();
+
+            ThreadA.Join();
+            ThreadB.Join();
+            ThreadC.Join();
+            ThreadD.Join();
+
+            Console.WriteLine("-- End of thread --");
+            label1.Text = "- End of thread -";
 
         }
     }
@@ -67,7 +77,7 @@ namespace ThreadingMidtermTP
 
         public static void Thread2()
         {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Thread thread = Thread.CurrentThread;
                 Console.WriteLine("Name of Thread: " + thread.Name + " = " + i);
