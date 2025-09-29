@@ -25,6 +25,26 @@ namespace ThreadingMidtermTP
         {
             this.BackColor = ColorTranslator.FromHtml("#F3F3F3");
         }
+
+        private void RunButton_Click(object sender, EventArgs e)
+        {
+            ThreadStart threadStart = new ThreadStart(MyThreadClass.Thread1);
+            Thread ThreadA = new Thread(threadStart);
+            Thread ThreadB = new Thread(threadStart);
+            Thread ThreadC = new Thread(threadStart);
+            Thread ThreadD = new Thread(threadStart);
+
+            ThreadA.Name = "Thread A";
+            ThreadB.Name = "Thread B";
+            ThreadC.Name = "Thread C";
+            ThreadD.Name = "Thread D";
+
+            ThreadA.Start();
+            ThreadB.Start();
+            ThreadC.Start();
+            ThreadD.Start();
+
+        }
     }
 
     public class MyThreadClass
