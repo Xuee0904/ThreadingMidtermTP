@@ -15,6 +15,14 @@ namespace ThreadingMidtermTP
         public Form1()
         {
             InitializeComponent();
+
+            RunButton.BackColor = ColorTranslator.FromHtml("#3A5A40");
+            RunButton.ForeColor = ColorTranslator.FromHtml("#DFE6DA");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#F3F3F3");
         }
     }
 }
